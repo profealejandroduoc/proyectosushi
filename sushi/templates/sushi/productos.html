@@ -1,69 +1,17 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "sushi/base.html" %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sushi delivery</title>
-    <!-- Latest compiled and minified CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Latest compiled JavaScript -->
-    <script src="js/bootstrap.bundle.min.js"></script>
+{% block links %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+{% endblock links %}
 
-<body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-danger">
-        <div class="container">
 
-            <a class="navbar-brand" href="#">
-                <img src="img/dog3logo.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill">
-            </a>
 
-            <a class="navbar-brand" href="#">Sushiwawa</a>
-            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html" aria-current="page">Home
-                            <span class="visually-hidden">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="menu.html">Menú</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="mispedidos.html">Mis pedidos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">Contacto</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Administración</a>
-                        <div class="dropdown-menu bg-danger shadow" aria-labelledby="dropdownId">
-                            <a class="dropdown-item drophovercustom" href="productos.html">Productos</a>
-                            <a class="dropdown-item drophovercustom" href="pedidos.html">Pedidos</a>
-                            <a class="dropdown-item drophovercustom" href="clientes.html">Clientes</a>
-                        </div>
-                    </li>
-                </ul>
-                <!-- <ul class="navbar-nav me-auto mt-2 mt-lg-0 " >
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Usuario</a>
-                    </li>
-                </ul> -->
-                <span id="sesionlink"><a class="nav-link text-light sesiontext" href="login.html">Usuario</a></span>
 
-            </div>
-        </div>
-    </nav>
+{% block contenido %}
+
     <div class="container"><!--main container-->
       <div class="mt-3">
         <h1 class="h4">Listado de Productos</h1>
@@ -83,7 +31,7 @@
             <tbody>
               <tr>
                 <td>Anguila eléctrica Roll</td>
-                <td><img src="img/electrica.jfif" alt="" height="50"></td>
+                <td><img src=" {% static 'sushi/img/electrica.jfif' %} " alt="" height="50"></td>
                 <td>Un sabor electrizante</td>
                 <td>5000</td>
                 <td>
@@ -92,29 +40,7 @@
                 </td>
                 
               </tr>
-            
-              <tr>
-                <td>Pulpo Venenoso Roll</td>
-                <td><img src="img/pulporoll.jfif" alt="" height="50"></td>
-                <td>Un sabor electrizante</td>
-                <td>5000</td>
-                <td>
-                    <a href="#" role="button" class="btn btn-warning text-light"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                    <a href="#" role="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                </td>
-                
-              </tr>
-              <tr>
-                <td>Sushipleto</td>
-                <td><img src="img/sushipleto.jfif" alt="" height="50"></td>
-                <td>Un sabor electrizante</td>
-                <td>5000</td>
-                <td>
-                    <a href="#" role="button" class="btn btn-warning text-light"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                    <a href="#" role="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                </td>
-                
-              </tr>
+        
             </tbody>
           </table>
 
@@ -131,8 +57,6 @@
 
     </div><!--main container ends-->
 
+    {% endblock contenido %}
 
 
-</body>
-
-</html>

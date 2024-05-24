@@ -6,4 +6,7 @@ def index(request):
 
 def mispedidos(request):
     return render(request, 'sushi/mispedidos.html')
+
+def productos(request):
+    return render(request,'sushi/productos.html')
           
