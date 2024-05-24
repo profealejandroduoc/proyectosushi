@@ -1,0 +1,88 @@
+{% extends "sushi/base.html" %}
+{% load static %}
+
+
+
+{% block contenido %}
+    <div class="container"><!--main container-->
+      <div class="mt-3">
+        <h1 class="h4">Mis Pedidos</h1>
+      </div>
+      <div class="mt-2 table-responsive ">
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Fecha</th>
+                <th>Dirección de Entrega</th>
+                <th>Valor</th>
+                <th>Recibido por</th>
+                <th>Estado</th>
+                <th>Detalles</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>100</td>
+                <td>16 de Abril 2024</td>
+                <td>Por ahí 123</td>
+                <td>$25000</td>
+                <td>Diogenes Carrasco</td>
+                <td>
+                  <p class="preparacion"><i class="fa fa-hourglass-half" aria-hidden="true"></i>
+                    En preparación</p>
+                </td>
+                <td><a href="detallepedido.html" class="nav-link text-primary"><i class="fa fa-search" aria-hidden="true"></i> Detalles</a></td>
+              </tr>
+              <tr>
+                <td>105</td>
+                <td>10 de Abril 2024</td>
+                <td>Por ahí 123</td>
+                <td>$35000</td>
+                <td>Wacoldo Soto</td>
+                <td>
+                  <p class="enruta"><i class="fa fa-bicycle" aria-hidden="true"></i> En camino</p>
+                </td>
+                <td><a href="detallepedido.html" class="nav-link text-primary"><i class="fa fa-search" aria-hidden="true"></i> Detalles</a></td>
+              </tr>
+              <tr>
+                <td>101</td>
+                <td>10 de Abril 2024</td>
+                <td>Por ahí 123</td>
+                <td>$35000</td>
+                <td>Wacoldo Soto</td>
+                <td>
+                  <p class="entregado"><i class="fa fa-check-circle-o" aria-hidden="true"></i> Entregado</p>
+                </td>
+                <td><a href="detallepedido.html" class="nav-link text-primary"><i class="fa fa-search" aria-hidden="true"></i> Detalles</a></td>
+              </tr>
+              <tr>
+                <td>121</td>
+                <td>12 de Marzo 2024</td>
+                <td>Por allá 543</td>
+                <td>$45000</td>
+                <td>Wacoldo Soto</td>
+                <td>
+                  <p class="incompleta"><i class="fa fa-times-circle" aria-hidden="true"></i> Entrega incompleta</p>
+                </td>
+                <td><a href="detallepedido.html" class="nav-link text-primary"><i class="fa fa-search" aria-hidden="true"></i> Detalles</a></td>
+              </tr>
+        
+            </tbody>
+          </table>
+
+          <ul class="pagination text-center">
+            <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+          </ul>
+      </div>
+
+
+
+    </div><!--main container ends-->
+
+
+    {% endblock contenido %}

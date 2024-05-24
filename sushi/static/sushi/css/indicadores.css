@@ -1,0 +1,19 @@
+.estilopendiente{
+    background-color: rgba(255, 0, 0,0.8);
+    color:white;
+}
+
+.encamino{
+    background-color: rgba(255, 196, 0, 0.8);
+    color:rgb(146, 78, 1);
+}
+
+.entregado{
+    background-color: rgba(50, 175, 0, 0.8);
+    color:white;
+}
+
+.cancelado{
+    background-color: rgba(90, 0, 175, 0.8);
+    color:white;
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushi delivery</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/indicadores.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-danger">
+        <div class="container">
+
+            <a class="navbar-brand" href="#">
+                <img src="img/dog3logo.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill">
+            </a>
+
+            <a class="navbar-brand" href="#">Sushiwawa</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html" aria-current="page">Home
+                            <span class="visually-hidden">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menú</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mispedidos.html">Mis pedidos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Administración</a>
+                        <div class="dropdown-menu bg-danger shadow" aria-labelledby="dropdownId">
+                            <a class="dropdown-item drophovercustom" href="productos.html">Productos</a>
+                            <a class="dropdown-item drophovercustom" href="pedidos.html">Pedidos</a>
+                            <a class="dropdown-item drophovercustom" href="clientes.html">Clientes</a>
+                        </div>
+                    </li>
+                </ul>
+                <!-- <ul class="navbar-nav me-auto mt-2 mt-lg-0 " >
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Usuario</a>
+                    </li>
+                </ul> -->
+                <span id="sesionlink"><a class="nav-link text-light sesiontext" href="login.html">Usuario</a></span>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container"><!--main container-->
+        <div class="mt-3">
+            <h1 class="h4">Listado de Pedidos</h1>
+            <p><a href="pedidos.html" class="nodecolink"><i class="fa fa-superpowers" aria-hidden="true"></i> Actualizar Pedidos
+            </p></a>
+        </div>
+        <div class="mt-2 table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id Pedido</th>
+                        <th>Cliente</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Valor</th>
+                        <th>Estado</th>
+                        <th>Detalle</th>
+                        <th>Cambiar Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>123456</td>
+
+                        <td>Wacoldo Soto</td>
+                        <td>+5691234567</td>
+                        <td>Por ahí 123</td>
+                        <td>$20000</td>
+                        <td class="estilopendiente">
+                            <span class="estilopendiente p-1 mt-5">
+                            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Pendiente
+                            </span>
+                        </td>
+                        <td>
+                            <span class="">
+                            <a href="detallepedido.html" class="nav-link text-primary">
+                            <i class="fa fa-search" aria-hidden="true"></i> Ver detalle</a>
+                            </span>
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-danger dropdown-toggle btn-sm h6" data-bs-toggle="dropdown">
+                                  Seleccione Estado
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item h6" href="#">Pendiente</a></li>
+                                  <li><a class="dropdown-item h6" href="#">En camino</a></li>
+                                  <li><a class="dropdown-item h6" href="#">Entregado</a></li>
+                                  <li><a class="dropdown-item h6" href="#">Cancelado</a></li>
+                                </ul>
+                              </div>
+                        </td>
+                        
+                       
+
+                    </tr>
+                    <tr>
+                        <td>987654</td>
+
+                        <td>Diogenes Carrasco</td>
+                        <td>+5691234567</td>
+                        <td>Por ahí 123</td>
+                        <td>$20000</td>
+                        <td class="">
+                            <span class="encamino p-1 mt-5">
+                                <i class="fa fa-motorcycle" aria-hidden="true"></i> En camino
+                            </span>
+                        </td>
+                        <td>
+                            <span class="">
+                            <a href="detallepedido.html" class="nav-link text-primary">
+                            <i class="fa fa-search" aria-hidden="true"></i> Ver detalle</a>
+                            </span>
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-danger dropdown-toggle btn-sm h6" data-bs-toggle="dropdown">
+                                  Seleccione Estado
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item h6" href="#">Pendiente</a></li>
+                                  <li><a class="dropdown-item h6" href="#">En camino</a></li>
+                                  <li><a class="dropdown-item h6" href="#">Entregado</a></li>
+                                  <li><a class="dropdown-item h6" href="#">Cancelado</a></li>
+                                </ul>
+                              </div>
+                        </td>
+                        
+                       
+
+                    </tr>
+                    
+                    <tr>
+                        <td>545786</td>
+
+                        <td>Wenceslao Vargas</td>
+                        <td>+5691234567</td>
+                        <td>Por ahí 123</td>
+                        <td>$30000</td>
+                        <td class="">
+                            <span class="entregado p-1 mt-5">
+                                <i class="fa fa-check" aria-hidden="true"></i> Entregado
+                            </span>
+                        </td>
+                        <td>
+                            <span class="">
+                            <a href="detallepedido.html" class="nav-link text-primary">
+                            <i class="fa fa-search" aria-hidden="true"></i> Ver detalle</a>
+                            </span>
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-danger dropdown-toggle btn-sm h6" data-bs-toggle="dropdown">
+                                  Seleccione Estado
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item h6" href="#">Pendiente</a></li>
+                                  <li><a class="dropdown-item h6" href="#">En camino</a></li>
+                                  <li><a class="dropdown-item h6" href="#">Entregado</a></li>
+                                  <li><a class="dropdown-item h6" href="#">Cancelado</a></li>
+                                </ul>
+                              </div>
+                        </td>
+                        
+                       
+
+                    </tr>
+                    <tr>
+                        <td>987654</td>
+
+                        <td>Tertuliano Cruzat</td>
+                        <td>+5691234567</td>
+                        <td>Por ahí 123</td>
+                        <td>$15000</td>
+                        <td class="">
+                            <span class="cancelado p-1 mt-5">
+                                <i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Cancelado
+                            </span>
+                        </td>
+                        <td>
+                            <span class="">
+                            <a href="detallepedido.html" class="nav-link text-primary">
+                            <i class="fa fa-search" aria-hidden="true"></i> Ver detalle</a>
+                            </span>
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-danger dropdown-toggle btn-sm h6" data-bs-toggle="dropdown">
+                                  Seleccione Estado
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item h6" href="#">Pendiente</a></li>
+                                  <li><a class="dropdown-item h6" href="#">En camino</a></li>
+                                  <li><a class="dropdown-item h6" href="#">Entregado</a></li>
+                                  <li><a class="dropdown-item h6" href="#">Cancelado</a></li>
+                                </ul>
+                              </div>
+                        </td>
+                        
+                       
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <ul class="pagination text-center">
+                <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+            </ul>
+        </div>
+
+
+
+    </div><!--main container ends-->
+
+
+
+</body>
+
+</html>

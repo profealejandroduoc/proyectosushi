@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushi delivery</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/estilocrearcuenta.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-danger">
+        <div class="container">
+
+            <a class="navbar-brand" href="#">
+                <img src="img/dog3logo.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill">
+            </a>
+
+            <a class="navbar-brand" href="#">Sushiwawa</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html" aria-current="page">Home
+                            <span class="visually-hidden">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menú</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mispedidos.html">Mis pedidos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Administración</a>
+                        <div class="dropdown-menu bg-danger shadow" aria-labelledby="dropdownId">
+                            <a class="dropdown-item drophovercustom" href="productos.html">Productos</a>
+                            <a class="dropdown-item drophovercustom" href="pedidos.html">Pedidos</a>
+                            <a class="dropdown-item drophovercustom" href="clientes.html">Clientes</a>
+                        </div>
+                    </li>
+                </ul>
+                <!-- <ul class="navbar-nav me-auto mt-2 mt-lg-0 " >
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Usuario</a>
+                    </li>
+                </ul> -->
+                <span id="sesionlink"><a class="nav-link text-light sesiontext" href="login.html">Usuario</a></span>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container"><!--main container-->
+
+
+
+        <div class="row mt-3">
+            <div class="col-sm"></div>
+            <div class="col-sm">
+                <h2 class="text-center">Crear cuenta</h2>
+                <form action="login.html" class="was-validated">
+                    <div class="mb-3">
+                        <label for="usrname" class="form-label">Nombre de Usuario:</label>
+                        <input type="text" class="form-control" id="usrname" name="usrname" placeholder="waco123"
+                            required>
+                        
+                        <div class="invalid-feedback">Complete este campo</div>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Ingrese email" name="email"
+                            required>
+                            <div class="invalid-feedback">Complete este campo</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pwd" class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd"
+                            required>
+                            <div class="invalid-feedback">Complete este campo</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pwd2" class="form-label">Reingrese Password:</label>
+                        <input type="password" class="form-control" id="pwd2" placeholder="reingrese password"
+                            name="pswd2" required>
+                            <div class="invalid-feedback">Complete este campo</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dire" class="form-label">Dirección:</label>
+                        <input type="text" class="form-control" id="dire" placeholder="Ej.: por ahi 123" name="dire"
+                            required>
+                            <div class="invalid-feedback">Complete este campo</div>
+                    </div>
+                    <div class="form-check mb-3">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="remember"> Desea recibir
+                            notificaciones
+                        </label>
+                    </div>
+                    <button type="submit" class="btncrear rounded">Crear cuenta</button><br>
+                    <br>
+                    <button type="reset" class="btncancelar rounded">Cancelar</button>
+                </form>
+
+
+
+
+            </div>
+            <div class="col-sm"></div>
+
+        </div>
+
+
+
+
+
+
+    </div><!--main container ends-->
+
+
+
+</body>
+
+</html>
