@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .forms import ProductoForm
 
 # Create your views here.
@@ -18,10 +18,11 @@ def crearproducto(request):
     }
     
     if request.method=='POST':
-        form=ProductoForm(data=request.POST)
+        form=ProductoForm(data=request.POST, files=request.FILES)
         if form.is_valid():
             form.save()
             datos["mensaje"]='Producto Agregado'
+            return redirect('productos')
         else:
             datos["form"]=form
             
