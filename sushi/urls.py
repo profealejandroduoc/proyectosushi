@@ -1,6 +1,6 @@
 
 from django.urls import path, include
-from .views import index, mispedidos, productos
+from .views import index, mispedidos, productos, crearproducto
 
 #IMAGEN
 from django.conf import settings
@@ -11,6 +11,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('mispedidos/', mispedidos, name='mispedidos'),
     path('productos/', productos, name='productos'),
+    path('crearproducto/',crearproducto, name='crearproducto')
 ]
 
 if settings.DEBUG:
