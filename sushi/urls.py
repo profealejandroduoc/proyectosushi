@@ -11,7 +11,8 @@ urlpatterns = [
     path('', index, name='index'),
     path('mispedidos/', mispedidos, name='mispedidos'),
     path('productos/', productos, name='productos'),
-    path('crearproducto/',crearproducto, name='crearproducto')
+    path('crearproducto/',crearproducto, name='crearproducto'),
+ 
 ]
 
 if settings.DEBUG:

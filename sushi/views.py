@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from .forms import ProductoForm
+from .models import	Producto
 
 # Create your views here.
 def index(request):
@@ -9,7 +10,13 @@ def mispedidos(request):
     return render(request, 'sushi/mispedidos.html')
 
 def productos(request):
-    return render(request,'sushi/productos.html')
+    productos=Producto.objects.all()
+    print(productos)
+    datos={
+        "productos":productos
+    }
+    
+    return render(request,'sushi/productos.html', datos)
 
 def crearproducto(request):
     form=ProductoForm()
@@ -27,4 +34,7 @@ def crearproducto(request):
             datos["form"]=form
             
     return render(request,'sushi/crearproducto.html',datos)
+
+
+    
           

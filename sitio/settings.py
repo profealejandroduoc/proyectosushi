@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'sushi',
     "crispy_forms",
     "crispy_bootstrap5",
+    "django.contrib.humanize",
 ]
 
 MIDDLEWARE = [
@@ -110,10 +111,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'es-cl'
+LANGUAGE_CODE = 'es-es'
 
 TIME_ZONE = 'America/Santiago'
-
+USE_THOUSAND_SEPARATOR = True
 USE_I18N = True
 
 USE_TZ = True
