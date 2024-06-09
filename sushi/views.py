@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from .forms import ProductoForm
 from .models import	Producto
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 def index(request):
@@ -35,6 +36,19 @@ def crearproducto(request):
             
     return render(request,'sushi/crearproducto.html',datos)
 
-
+def modificarproducto(request,id):
+    prod=get_object_or_404(Producto, id=id)
+    form=ProductoForm(instance=prod)
     
-          
+    datos={
+        "form":form
+    }
+    
+    if request.method=="POST":
+        form=ProductoForm(data=request.POST, files=request.FILES, instance=prod)
+        if form.is_valid():
+            form.save()
+            return redirect(to='productos')
+    
+ 
+    return render(request,'sushi/modificarproducto.html',datos)

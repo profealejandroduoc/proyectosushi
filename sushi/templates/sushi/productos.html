@@ -1,7 +1,6 @@
 {% extends "sushi/base.html" %}
 {% load static %}
-{% load humanize %}
-{% load l10n %}
+
 
 {% block links %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -37,11 +36,11 @@
                 <td>{{p.nombre_producto | title}}</td>
                 <td><img src="{{p.imagen.url}} " alt="" height="50"></td>
                 <td>{{p.descripcion | capfirst}}</td>
-                {% localize on %}
-                <td>${{p.valor | intcomma }}</td>
-                {% endlocalize %}
+
+                <td>${{p.valor }}</td>
+     
                 <td>
-                    <a href="#" role="button" class="btn btn-warning text-light"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a href="{% url "modificarproducto" p.id %}" role="button" class="btn btn-warning text-light"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                     <a href="#" role="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </td>
                 
