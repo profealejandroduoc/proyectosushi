@@ -13,6 +13,14 @@
     <script src=" {% static 'sushi/js/bootstrap.bundle.min.js' %} "></script>
     <link rel="stylesheet" href=" {% static 'sushi/css/estilo.css' %} ">
 
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+     {% endif %}
+
     {% block links %}
     
     {% endblock links %}

@@ -2,6 +2,7 @@
 {% load static %}
 
 
+
 {% block links %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -41,7 +42,7 @@
      
                 <td>
                     <a href="{% url "modificarproducto" p.id %}" role="button" class="btn btn-warning text-light"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                    <a href="#" role="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <a href="{% url "eliminarproducto" p.id %}" role="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </td>
                 
               </tr>

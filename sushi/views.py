@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from .forms import ProductoForm
 from .models import	Producto
 from django.shortcuts import get_object_or_404
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -30,6 +31,7 @@ def crearproducto(request):
         if form.is_valid():
             form.save()
             datos["mensaje"]='Producto Agregado'
+            messages.success(request,'Producto agregado exitosamente!!')
             return redirect('productos')
         else:
             datos["form"]=form
@@ -48,7 +50,22 @@ def modificarproducto(request,id):
         form=ProductoForm(data=request.POST, files=request.FILES, instance=prod)
         if form.is_valid():
             form.save()
+            messages.success('prodcuto actualizado exitosamente!!')
             return redirect(to='productos')
     
  
     return render(request,'sushi/modificarproducto.html',datos)
+
+def eliminarproducto(request,id):
+    producto=get_object_or_404(Producto,id=id)
+    
+    datos={
+        "producto":producto
+    }
+    
+    if request.method=="POST":
+        producto.delete()
+        messages.success(request,"El producto fue eliminado correctamente!!")
+        return redirect(to='productos')
+    
+    return render(request,'sushi/eliminarproducto.html', datos)

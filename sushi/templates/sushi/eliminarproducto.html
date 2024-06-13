@@ -1,0 +1,65 @@
+{% extends "sushi/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+
+<div class="container">
+    <div class="alert alert-danger mt-4" role="alert">
+        <strong>ATENCIÓN: Está a punto de eliminar un producto</strong>
+    </div>
+    <div class="border shadow rounded p-5">
+
+        <div>
+            <h3>¿Estás seguro de eliminar el siguiente producto ?</h3>
+            <h1>{{ producto.nombre_producto }}</h1>
+        </div>
+        <div>
+
+
+            <div class="d-flex justify-content-end">
+                <input type="button" class="btn btn-danger btn-lg mt-2" value="Eliminar" data-bs-toggle="modal"
+                    data-bs-target="#myModal">
+                <span> &nbsp;&nbsp;</span>
+                <a href="{% url 'productos' %}">
+                    <input type="button" class="btn btn-success btn-lg mt-2" value="Cancelar">
+                </a>
+
+
+            </div>
+
+
+            <!-- The Modal -->
+            <div class="modal fade" id="myModal">
+
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Confirmar eliminación</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                Confirme que desea eliminar {{ producto.nombre_producto }}
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock contenido %}
