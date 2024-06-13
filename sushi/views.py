@@ -50,7 +50,7 @@ def modificarproducto(request,id):
         form=ProductoForm(data=request.POST, files=request.FILES, instance=prod)
         if form.is_valid():
             form.save()
-            messages.success('prodcuto actualizado exitosamente!!')
+            messages.success(request,'Producto actualizado exitosamente!!')
             return redirect(to='productos')
     
  

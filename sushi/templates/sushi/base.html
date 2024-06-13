@@ -12,11 +12,22 @@
     <!-- Latest compiled JavaScript -->
     <script src=" {% static 'sushi/js/bootstrap.bundle.min.js' %} "></script>
     <link rel="stylesheet" href=" {% static 'sushi/css/estilo.css' %} ">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                <script>
+                    Swal.fire({
+                        title: 'Exito!',
+                        text: '{{message}}',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                      })
+
+
+                </script>
             {% endfor %}
         </ul>
      {% endif %}
