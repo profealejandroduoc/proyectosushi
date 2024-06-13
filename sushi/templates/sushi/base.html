@@ -103,8 +103,12 @@
                  
                     {% if user.is_authenticated %}
                         <span id="sesionlink"><a class="nav-link text-light sesiontext" href="">{{user.username}} |</a></span>
-                        
-                        <span id="sesionlink"><a class="nav-link text-light sesiontext" href="{% url "logout" %}">&nbsp;Cerrar Sesión</a></span>
+                        <form action="{% url "logout" %}" method="post">
+                            {% csrf_token %}
+                            <span id="sesionlink"><button type="submit" class='nav-link text-light sesiontext'>&nbsp;Cerrar Sesión</button></span>
+                        </form>
+
+                       <!--  <span id="sesionlink"><a class="nav-link text-light sesiontext" href="{% url "logout" %}">&nbsp;Cerrar Sesión</a></span> -->
                     {% else %}
                         <span id="sesionlink"><a class="nav-link text-light sesiontext" href="{% url 'login' %}">Iniciar Sesión</a></span>
                     {% endif %}
