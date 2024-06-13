@@ -3,6 +3,7 @@ from .forms import ProductoForm
 from .models import	Producto
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
+from django.conf import settings
 
 # Create your views here.
 def index(request):
@@ -50,6 +51,7 @@ def modificarproducto(request,id):
         form=ProductoForm(data=request.POST, files=request.FILES, instance=prod)
         if form.is_valid():
             form.save()
+            messages.set_level(request,messages.SUCCESS)
             messages.success(request,'Producto actualizado exitosamente!!')
             return redirect(to='productos')
     
@@ -64,8 +66,11 @@ def eliminarproducto(request,id):
     }
     
     if request.method=="POST":
+        import os
+        os.remove(os.path.join(str(settings.MEDIA_ROOT).replace('/media','')+str(producto.imagen.url).replace('/','\\')))
         producto.delete()
-        messages.success(request,"El producto fue eliminado correctamente!!")
+        messages.set_level(request, messages.WARNING)
+        messages.warning(request,"El producto fue eliminado correctamente!!")
         return redirect(to='productos')
     
     return render(request,'sushi/eliminarproducto.html', datos)
