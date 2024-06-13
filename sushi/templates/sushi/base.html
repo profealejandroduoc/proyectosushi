@@ -16,38 +16,38 @@
 
 
     {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                {% if message.level == 25 %}
-                    <script>
-                        Swal.fire({
-                            title: 'Exito!',
-                            text: '{{message}} {{message.level}}',
-                            icon: 'success',
-                            confirmButtonText: 'Ok'
-                        })
+    <ul class="messages">
+        {% for message in messages %}
+        {% if message.level == 25 %}
+        <script>
+            Swal.fire({
+                title: 'Exito!',
+                text: '{{message}} {{message.level}}',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            })
 
 
-                </script>
-                {% endif %}
-                {% if message.level == 30 %}
-                    <script>
-                        Swal.fire({
-                            title: 'Exito!',
-                            text: '{{message}} {{message.level}}',
-                            icon: 'warning',
-                            confirmButtonText: 'Ok'
-                        })
+        </script>
+        {% endif %}
+        {% if message.level == 30 %}
+        <script>
+            Swal.fire({
+                title: 'Exito!',
+                text: '{{message}} {{message.level}}',
+                icon: 'warning',
+                confirmButtonText: 'Ok'
+            })
 
 
-                </script>
-                {% endif %}
-            {% endfor %}
-        </ul>
-     {% endif %}
+        </script>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    {% endif %}
 
     {% block links %}
-    
+
     {% endblock links %}
 
 
@@ -59,62 +59,71 @@
     <nav class="navbar navbar-expand-sm navbar-dark bg-danger">
         <div class="container">
 
-            <a class="navbar-brand" href="{% url "index" %} ">
-                <img src=" {% static 'sushi/img/dog3logo.png' %} " alt="Avatar Logo" style="width:40px;" class="rounded-pill">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src=" {% static 'sushi/img/dog3logo.png' %} " alt=" Avatar Logo" style="width:40px;"
+                class="rounded-pill">
             </a>
 
-            <a class="navbar-brand" href="{% url "index" %} ">Sushiwawa</a>
-            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+            <a class="navbar-brand" href="{% url 'index' %}">Sushiwawa</a>
+            <button class=" navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href=" {% url "index" %}" aria-current="page">Home
-                            <span class="visually-hidden">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Menú</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url "mispedidos" %}">Mis pedidos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Contacto</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Administración</a>
-                        <div class="dropdown-menu bg-danger shadow drophovercustom" aria-labelledby="dropdownId">
-                            <a class="dropdown-item drophovercustom" href=" {% url "productos" %}">Productos</a>
-                            <a class="dropdown-item drophovercustom" href="">Pedidos</a>
-                            <a class="dropdown-item drophovercustom" href="">Clientes</a>
-                        </div>
-                    </li>
-                </ul>
-                <!-- <ul class="navbar-nav me-auto mt-2 mt-lg-0 " >
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href=" {% url 'index' %}" aria-current="page">Home
+                                <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Menú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'mispedidos' %}">Mis pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Contacto</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Administración</a>
+                            <div class="dropdown-menu bg-danger shadow drophovercustom" aria-labelledby="dropdownId">
+                                <a class="dropdown-item drophovercustom" href=" {% url 'productos' %}">Productos</a>
+                                <a class="dropdown-item drophovercustom" href="">Pedidos</a>
+                                <a class="dropdown-item drophovercustom" href="">Clientes</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- <ul class="navbar-nav me-auto mt-2 mt-lg-0 " >
                     <li class="nav-item">
                         <a class="nav-link" href="#">Usuario</a>
                     </li>
                 </ul> -->
-                <span id="sesionlink"><a class="nav-link text-light sesiontext" href="">Usuario</a></span>
+                 
+                    {% if user.is_authenticated %}
+                        <span id="sesionlink"><a class="nav-link text-light sesiontext" href="">{{user.username}} |</a></span>
+                        
+                        <span id="sesionlink"><a class="nav-link text-light sesiontext" href="{% url "logout" %}">&nbsp;Cerrar Sesión</a></span>
+                    {% else %}
+                        <span id="sesionlink"><a class="nav-link text-light sesiontext" href="{% url 'login' %}">Iniciar Sesión</a></span>
+                    {% endif %}
 
-            </div>
+
+                </div>
         </div>
     </nav>
     {% block contenido %}
-    
-    
-    
+
+
+
     {% endblock contenido %}
 
 
 
 
 
- 
+
 
 </body>
 

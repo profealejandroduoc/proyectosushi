@@ -27,7 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL='/'
 
+LOGOUT_REDIRECT_URL='/'
 # Application definition
 
 INSTALLED_APPS = [
@@ -136,3 +138,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL='/media/'
 import os
 MEDIA_ROOT=os.path.join(BASE_DIR,'sushi/media')
+
+

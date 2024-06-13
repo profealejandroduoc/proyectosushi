@@ -1,9 +1,11 @@
+from django.http import Http404
 from django.shortcuts import redirect, render
 from .forms import ProductoForm
 from .models import	Producto
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.conf import settings
+from django.core.paginator import Paginator
 
 # Create your views here.
 def index(request):
@@ -14,9 +16,18 @@ def mispedidos(request):
 
 def productos(request):
     productos=Producto.objects.all()
+    page=request.GET.get('page',1)
+    
+    try:
+        pagtr=Paginator(productos,3)
+        productos=pagtr.page(page)
+    except:
+        raise Http404
+    
     print(productos)
     datos={
-        "productos":productos
+        "productos":productos,
+        "paginator":pagtr
     }
     
     return render(request,'sushi/productos.html', datos)
