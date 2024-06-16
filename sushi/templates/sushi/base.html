@@ -42,6 +42,18 @@
 
         </script>
         {% endif %}
+        {% if message.level == 20 %}
+        <script>
+            Swal.fire({
+                title: 'Hasta Pronto!',
+                text: '{{message}}',
+                icon: 'info',
+                confirmButtonText: 'Ok'
+            })
+
+
+        </script>
+        {% endif %}
         {% endfor %}
     </ul>
     {% endif %}
@@ -103,14 +115,16 @@
                  
                     {% if user.is_authenticated %}
                         <span id="sesionlink"><a class="nav-link text-light sesiontext" href="">{{user.username}} |</a></span>
-                        <form action="{% url "logout" %}" method="post">
+                       {% comment %}  <form action="{% url "logout" %}" method="post">
                             {% csrf_token %}
                             <span id="sesionlink"><button type="submit" class='nav-link text-light sesiontext'>&nbsp;Cerrar Sesión</button></span>
-                        </form>
+                        </form> {% endcomment %}
 
-                       <!--  <span id="sesionlink"><a class="nav-link text-light sesiontext" href="{% url "logout" %}">&nbsp;Cerrar Sesión</a></span> -->
+                        <span id="sesionlink"><a class="nav-link text-light sesiontext" href="{% url "logout_view" %}">&nbsp;Cerrar Sesión</a></span>
                     {% else %}
                         <span id="sesionlink"><a class="nav-link text-light sesiontext" href="{% url 'login' %}">Iniciar Sesión</a></span>
+                        <span id="sesionlink"><a class="nav-link text-light sesiontext" href="">|</a></span>
+                        <span id="sesionlink"><a class="nav-link text-light sesiontext" href="{% url 'registro' %}">Crear cuenta</a></span>
                     {% endif %}
 
 

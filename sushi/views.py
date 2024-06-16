@@ -1,11 +1,16 @@
 from django.http import Http404
 from django.shortcuts import redirect, render
-from .forms import ProductoForm
+from .forms import ProductoForm, customUserCreationForm
 from .models import	Producto
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.conf import settings
 from django.core.paginator import Paginator
+from django.contrib.auth import logout
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.models import User
+
+
 
 # Create your views here.
 def index(request):
@@ -15,6 +20,8 @@ def mispedidos(request):
     return render(request, 'sushi/mispedidos.html')
 
 def productos(request):
+    
+    
     productos=Producto.objects.all()
     page=request.GET.get('page',1)
     
@@ -30,6 +37,15 @@ def productos(request):
         "paginator":pagtr
     }
     
+    if request.method=="POST":
+        val=request.POST.get("valor")
+        productos=Producto.objects.filter(valor=val)
+        
+        datos={
+        "productos":productos,
+      
+        }
+        
     return render(request,'sushi/productos.html', datos)
 
 def crearproducto(request):
@@ -85,3 +101,38 @@ def eliminarproducto(request,id):
         return redirect(to='productos')
     
     return render(request,'sushi/eliminarproducto.html', datos)
+
+def logout_view(request):
+    logout(request) #from django.contrib.auth import logout
+    messages.set_level(request,messages.INFO)
+    messages.info(request,"Sesión Terminada!!!")
+    return redirect(to='index')
+
+def registro(request):
+    datos={
+        "form":customUserCreationForm()
+    }
+    
+    if request.method=="POST":
+        form=customUserCreationForm(data=request.POST)
+        newusr=request.POST.get('username')
+
+        existe=User.objects.filter(username=newusr)
+        print(existe)
+        if len(existe)==0:
+            if form.is_valid():
+                
+                form.save()
+                usuario=authenticate(username=form.cleaned_data["username"],password=form.cleaned_data["password1"])
+                login(request, usuario)
+                messages.success(request,"Usuario creado exitosamente")
+                return redirect(to="index")
+        else:
+            
+            datos={
+                "form":customUserCreationForm(),
+                "alerta": 'Usuario Existente'
+            }
+                
+                
+    return render(request,'registration/registro.html', datos)

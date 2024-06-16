@@ -2,24 +2,24 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+
 {% block contenido %}
     <div class="container"><!--main container-->
         <div class="mt-5 ">
-
+         
             <form action="" method="post" style="max-width:500px;margin:auto" class="border rounded p-5 shadow">
                 {% csrf_token %}
-                <h2>Login</h2>
+                {% if alerta %}
+                <div class="alert alert-danger">
+                   <strong>ERROR!</strong> {{alerta}}
+                 </div>
+               {% endif %}
+                <h2>Registro de Usaurio</h2>
               
                 {{ form | crispy }}
 
-                <input type="submit" class="btn btn-primary" value="Iniciar Sesión">
-                <div class="text-center mt-3">
-                    <a href="forgot.html" class="nodecolink">¿Olvidaste tu contraseña?</a>
-                    <br>
-                    <a href="{% url 'registro' %}" class="nodecolink">Crear una cuenta</a>
-                  
-                </div>
-                
+                <input type="submit" class="btn btn-primary" value="Crear Usuario">
+             
             </form>
 
            

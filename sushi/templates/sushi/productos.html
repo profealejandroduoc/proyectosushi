@@ -65,7 +65,14 @@
           
 
       </div>
-
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="id_valor"></label>
+          <input type="text" class="form-control" name="valor" id="id_valor" aria-describedby="helpId" placeholder="">
+        </div>
+        <input type="submit" value="buscar">
+      </form>
 
 
     </div><!--main container ends-->

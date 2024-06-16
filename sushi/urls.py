@@ -1,6 +1,8 @@
 
 from django.urls import path, include
-from .views import index, mispedidos, productos, crearproducto, modificarproducto, eliminarproducto
+from .views import index, mispedidos, productos, crearproducto, modificarproducto, eliminarproducto,logout_view,\
+    registro
+    
 
 #IMAGEN
 from django.conf import settings
@@ -13,7 +15,10 @@ urlpatterns = [
     path('productos/', productos, name='productos'),
     path('crearproducto/',crearproducto, name='crearproducto'),
     path('modificarproducto/<id>',modificarproducto, name='modificarproducto'),
-    path('eliminarproducto/<id>',eliminarproducto,name='eliminarproducto')
+    path('eliminarproducto/<id>',eliminarproducto,name='eliminarproducto'),
+    path('logout_view/',logout_view,name='logout_view'),
+    path('registro',registro,name='registro')
+    
  
 ]
 
